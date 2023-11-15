@@ -4,7 +4,7 @@
   "description": "mindfulness API 서버",
   "main": "app.js",
   "scripts": {
-    "start": "NODE_ENV=production PORT=80 pm2 start app.js -i 0",
+    "start": "cross-env NODE_ENV=production PORT=80 pm2 start app.js -i 0",
     "dev": "nodemon server",
     "test": "jest"
   },
@@ -33,6 +33,7 @@
     "passport-local": "^1.0.0",
     "pm2": "^5.3.0",
     "redis": "^4.6.10",
+    "sanitize-html": "^2.11.0",
     "sequelize": "^6.0.0",
     "socket.io": "^4.7.2",
     "uuid": "^8.1.0"

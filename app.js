@@ -29,6 +29,7 @@ const serverRouter = require("./routes/server");
 const indexRouter = require("./routes");
 const { sequelize } = require("./models");
 const passportConfig = require("./passport");
+const { default: RedisStore } = require("connect-redis");
 
 const app = express();
 const server = http.createServer(app);
@@ -86,6 +87,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     secret: process.env.COOKIE_SECRET,
+    store: new RedisStore({ client: redisClient }),
   })
 );
 
